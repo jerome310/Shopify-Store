@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Page</title>
+    {{ 'header.css' | asset_url | stylesheet_tag }}
+    <script src="https://kit.fontawesome.com/e88e862731.js" crossorigin="anonymous"></script>
+</head>
+<body>
+   <div class="container">
+    <div class="logo-container">
+        <h1>{{shop.name}}</h1>
+    </div>
+    {% for link in linklists.main-menu.links %}
+        {% if link.links != blank %}
+            <div class="dropdown">
+                <a href="#">
+                    {{link.title}}
+                </a>
+                {% render 'icon-dropdown' %}
+            </div>
+            {% else %}
+            <div class="links">
+                <a href="{{link.url}}">{{link.title}}</a>
+            </div>
+        {% endif %}
+
+    {% endfor %}
+
+    <div class="user-links">
+        <a href="{{routes.cart_url}}">
+            {% render 'icon-shopping-bag' %}
+            
+        </a>
+        <a href="{{routes.account_login_url}}">Login</a>
+        <a href="{{routes.account_register_url}}">Register</a>
+    </div>
+   </div> 
+</body>
+</html>
