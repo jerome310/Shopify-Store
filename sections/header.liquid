@@ -5,20 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header Page</title>
     {{ 'header.css' | asset_url | stylesheet_tag }}
-    <script src="https://kit.fontawesome.com/e88e862731.js" crossorigin="anonymous"></script>
 </head>
 <body>
    <div class="container">
     <div class="logo-container">
         <h1>{{shop.name}}</h1>
+        <div class="custom-price"></div>
     </div>
     {% for link in linklists.main-menu.links %}
         {% if link.links != blank %}
-            <div class="dropdown">
-                <a href="#">
-                    {{link.title}}
-                </a>
-                {% render 'icon-dropdown' %}
+            <div class="links">
+                <div class="dropdown-container">
+                    <a class="dropdown" href="#">
+                        {{link.title}}
+                    </a>
+                    <div class="dropdown-btn">
+                        {% render 'icon-dropdown' %}
+                    </div>
+                </div>
+                <div class="sublink-grandparent">
+                    <div class="sublink-parent">
+                        <a class="a" href="">Sublink 1</a>
+                        <a class="a" href="">Sublink 2</a>
+                        <a class="a" href="">Sublink 3</a>
+                    </div>
+                </div>
             </div>
             {% else %}
             <div class="links">

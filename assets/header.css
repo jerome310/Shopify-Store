@@ -18,6 +18,11 @@ body {
     text-align: center;
 }
 
+.dropdown-container svg:hover {
+    transform: rotate(180deg);
+    transition: all 0.3s ease;
+}
+
 .links {
     display: none;
 }
@@ -33,7 +38,6 @@ body {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        /* background-color: green; */
     }
 
     .logo-container {
@@ -42,16 +46,12 @@ body {
     }
 
     .links {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 10%;
-        /* background-color: red; */
+        display: block;
         margin-left: 0px;
     }
 
     /* Dropdown menu */
-    .dropdown {
+    .dropdown-container {
         display: flex;
         align-items: center;
     }
@@ -60,16 +60,47 @@ body {
         padding-right: 10px;
     }
 
-    .links a {
-        /* background-color: red; */
+    .dropdown-btn {
+        cursor: pointer;
     }
+  
+    /* sublinks */
+    .sublink-grandparent {
+        position: absolute;
+        top: 10%;
+        background-color: #ffffff;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        width: 15%;
+        border-radius: 8px;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .sublink-grandparent.toggle {
+        visibility: visible;
+        transition: all 0.3s ease;
+        opacity: 1;
+    }
+    
+    .sublink-parent {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Drop down Style Feature */
+
+    .sublink-parent a {
+        height: 50px;
+        padding: 15px 0 0 15px;
+    }
+
+    /* sublinks */
 
     .user-links {
         display: flex;
         align-items: center;
         justify-content: space-evenly;
         width: 20%;
-        /* background-color: yellow; */
     }
 
     .user-links a {
