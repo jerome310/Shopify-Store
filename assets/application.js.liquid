@@ -5,3 +5,7 @@ let subLinkGrandParent = document.querySelector('.sublink-grandparent');
 dropdown.addEventListener('mouseover', () => {
   subLinkGrandParent.classList.toggle('toggle')
 })  
+
+window.addEventListener('click', () => {
+  subLinkGrandParent.classList.remove('toggle')
+})

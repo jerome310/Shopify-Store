@@ -55,12 +55,9 @@ body {
         display: flex;
         align-items: center;
     }
-
-    .dropdown a {
-        padding-right: 10px;
-    }
-
+    
     .dropdown-btn {
+        padding-left: 5px;
         cursor: pointer;
     }
   
