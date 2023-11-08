@@ -9,3 +9,19 @@ dropdown.addEventListener('mouseover', () => {
 window.addEventListener('click', () => {
   subLinkGrandParent.classList.remove('toggle')
 })
+
+// NAVBAR DROP DOWN MENU
+let menu_icon_box = document.querySelector(".menu_icon_box");
+let links = document.querySelector(".links");
+
+menu_icon_box.addEventListener('click', () => {
+    menu_icon_box.classList.toggle('active')
+    links.classList.toggle('active')
+})
+
+document.addEventListener('click', (e) => {
+    if (!menu_icon_box.contains(e.target) && !links.contains(e.target)) {
+        menu_icon_box.classList.remove("active");
+        links.classList.remove("active");
+    }
+})

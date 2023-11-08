@@ -14,7 +14,9 @@ body {
 }
 
 .logo-container {
-    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    margin: 30px;
     text-align: center;
 }
 
@@ -24,14 +26,66 @@ body {
 }
 
 .links {
-    display: none;
+    width: fit-content;
+    height: 110vh;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #f9f9f9;
+    position: absolute;
+    text-align: left;
+    z-index: 1;
+    opacity: 0;
+    top: 0;
+    right: 0px;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.active.links {
+    opacity: 1;
+    right: 0;
+    pointer-events: fill;
+}
+
+.menu_icon_box {
+    z-index: 2;
+    width: fit-content;
+    height: auto;
+    background-color: #ffffff;
+    margin: 30px;
+    position: absolute;
+    right: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.line1,
+.line2,
+.line3 {
+    width: 40px;
+    height: 4px;
+    margin: 10px 8px;
+    background-color: #000000;
+    border-radius: 50px;
+    transition: 0.2s;
+}
+
+.active .line1 {
+    transform: translate(0px, 15px)rotate(45deg);
+}
+
+.active .line2 {
+    opacity: 0;
+}
+
+.active .line3 {
+    transform: translate(0px, -15px)rotate(-45deg);
 }
 
 .user-links {
     display: none;
 }
 
-@media only screen and (min-width: 991px) {
+@media only screen and (min-width: 768px) {
     .container {
         margin: 25px auto 0;
         width: 95%;
@@ -42,12 +96,27 @@ body {
 
     .logo-container {
         margin-top: 0;
-        text-align: center;
     }
 
     .links {
         display: block;
         margin-left: 0px;
+        width: fit-content;
+        height: 0;
+        box-shadow: 0;
+        background-color: none;
+        position: relative;
+        text-align: left;
+        z-index: 0;
+        opacity: 1;
+        top: 0;
+        right: 0;
+        pointer-events: auto;
+        transition: 0;
+    }
+
+    .menu_icon_box {
+        display: none;
     }
 
     /* Dropdown menu */
@@ -55,19 +124,18 @@ body {
         display: flex;
         align-items: center;
     }
-    
+
     .dropdown-btn {
         padding-left: 5px;
         cursor: pointer;
     }
-  
+
     /* sublinks */
     .sublink-grandparent {
         position: absolute;
-        top: 10%;
         background-color: #ffffff;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        width: 15%;
+        width: 300%;
         border-radius: 8px;
         visibility: hidden;
         opacity: 0;
@@ -78,17 +146,24 @@ body {
         transition: all 0.3s ease;
         opacity: 1;
     }
-    
+
     .sublink-parent {
         display: flex;
         flex-direction: column;
     }
-    
+
     /* Drop down Style Feature */
 
     .sublink-parent a {
         height: 50px;
         padding: 15px 0 0 15px;
+    }
+
+    .sublink-parent a:hover {
+        color: #ffffff;
+        border-radius: 0;
+        background-color: #bcbcbc;
+        transition: all 0.5s ease;
     }
 
     /* sublinks */
@@ -101,6 +176,6 @@ body {
     }
 
     .user-links a {
-       width: 25px;
+        width: 25px;
     }
 }
