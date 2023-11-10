@@ -95,11 +95,13 @@ body {
     }
 
     .logo-container {
-        margin-top: 0;
+        margin: 15px 30px;
     }
 
     .links {
-        display: block;
+        /* display: block; */
+        display: flex;
+        align-items: center;
         margin-left: 0px;
         width: fit-content;
         height: 0;
