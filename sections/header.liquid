@@ -1,57 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header Page</title>
     {{ 'header.css' | asset_url | stylesheet_tag }}
 </head>
+
 <body>
-   <div class="container">
-    <div class="logo-container">
-        <h1>{{shop.name}}</h1>
-        <div class="custom-price"></div>
-        <div class="menu_icon_box">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+    <div class="container">
+        <div class="logo-container">
+            <h1>{{shop.name}}</h1>
+            <div class="custom-price"></div>
+            <div class="menu_icon_box">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
         </div>
-    </div>
-    {% for link in linklists.main-menu.links %}
+
+        <div class="nav-container">
+        {% for link in linklists.main-menu.links %}
         {% if link.links != blank %}
-            <div class="links">
-                <div class="dropdown-container">
-                    <a class="dropdown" href="#">
-                        {{link.title}}
-                    </a>
-                    <div class="dropdown-btn">
-                        {% render 'icon-dropdown' %}
-                    </div>
-                </div>
-                <div class="sublink-grandparent">
-                    <div class="sublink-parent">
-                        <a class="a" href="">Sublink 1</a>
-                        <a class="a" href="">Sublink 2</a>
-                        <a class="a" href="">Sublink 3</a>
-                    </div>
+        <div class="links">
+            <div class="dropdown-container nav-links">
+                <a class="dropdown" href="#">
+                    {{link.title}}
+                </a>
+                <div class="dropdown-btn nav-links">
+                    {% render 'icon-dropdown' %}
                 </div>
             </div>
-            {% else %}
-            <div class="links">
-                <a href="{{link.url}}">{{link.title}}</a>
+            <div class="sublink-grandparent">
+                <div class="sublink-parent">
+                    <a class="a" href="">Sublink 1</a>
+                    <a class="a" href="">Sublink 2</a>
+                    <a class="a" href="">Sublink 3</a>
+                </div>
             </div>
+        </div>
+        {% else %}
+
+        <div class="links nav-links">
+            <a href="{{link.url}}">{{link.title}}</a>
+        </div>
         {% endif %}
 
-    {% endfor %}
+        {% endfor %}
+</div>
+        <div class="user-links">
+            <a href="{{routes.cart_url}}">
+                {% render 'icon-shopping-bag' %}
 
-    <div class="user-links">
-        <a href="{{routes.cart_url}}">
-            {% render 'icon-shopping-bag' %}
-            
-        </a>
-        <a href="{{routes.account_login_url}}">Login</a>
-        <a href="{{routes.account_register_url}}">Register</a>
+            </a>
+            <a href="{{routes.account_login_url}}">Login</a>
+            <a href="{{routes.account_register_url}}">Register</a>
+        </div>
     </div>
-   </div> 
 </body>
+
 </html>

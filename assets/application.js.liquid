@@ -12,19 +12,14 @@ window.addEventListener('click', () => {
 
 // NAVBAR DROP DOWN MENU
 let menu_icon_box = document.querySelector(".menu_icon_box");
-let links = document.querySelectorAll(".nav-links")
+let navLinks = document.querySelectorAll(".nav-links")
+let links = document.querySelector('.links');
 let navContainer = document.querySelector('.nav-container');
 console.log(links)
 
 menu_icon_box.addEventListener('click', () => {  
   menu_icon_box.classList.toggle('active')
-  // navContainer.style.display = 'flex'
-  // navContainer.style.displayDirection = 'column'
-  links.forEach(link => {
-    let navLinks = link.textContent;
-    console.log(navLinks)
-    navLinks.classList.toggle('active')
-  });
+  navContainer.classList.toggle('active')
 })
 
 document.addEventListener('click', (e) => {
