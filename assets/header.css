@@ -44,17 +44,20 @@ body {
 .nav-container {
     font-size: 20px;
     width: 40%;
-    height: 110vh;
+    height: 100vh;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     background-color: #f9f9f9;
     position: absolute;
-    text-align: left;
+    text-align: center;
     z-index: 1;
     opacity: 0;
     top: 0;
     right: 0;
     pointer-events: none;
     transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .active.nav-container {
@@ -63,11 +66,16 @@ body {
     pointer-events: fill;
 }
 
-/* .active.links {
-    opacity: 1;
-    right: 0;
-    pointer-events: fill;
-} */
+.links {
+    position: relative;
+    top: 30%;
+    padding-bottom: 20px;
+    font-size: 22px;
+}
+
+.links a {
+    padding-bottom: 15px;
+}   
 
 .menu_icon_box {
     z-index: 2;
@@ -112,9 +120,51 @@ body {
     display: none;
 }
 
+/* Dropdown menu */
+.dropdown-container {
+    display: block;
+}
+
+.dropdown-btn {
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+
+/* sublinks */
+.sublink-grandparent {
+    /* position: absolute;
+    top: 0px; */
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 150%;
+    border-radius: 8px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.sublink-grandparent.toggle {
+    visibility: visible;
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+
 .sublink-parent {
     display: flex;
     flex-direction: column;
+}
+ 
+/* Drop down Style Feature */
+
+.sublink-parent a {
+    height: 50px;
+    padding: 15px 0 0 15px;
+}
+
+.sublink-parent a:hover {
+    color: #ffffff;
+    border-radius: 0;
+    background-color: #bcbcbc;
+    transition: all 0.5s ease;
 }
 
 @media only screen and (min-width: 768px) {
